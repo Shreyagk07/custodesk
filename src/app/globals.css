@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF9F6;
+  /* Off-white Cream */
+  --foreground: #2C2420;
+  /* Deep Coffee */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-playfair);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* NEW Earth Tone Palette */
+  --color-off-white-cream: #FAF9F6;
+  --color-stone-beige: #E5E0D8;
+  --color-warm-taupe: #B5A89A;
+  --color-earth-brown: #8C705F;
+  --color-deep-coffee: #2C2420;
+
+  /* Mappings to Semantic Names (Preserving existing class usage) */
+
+  /* Cream (Backgrounds) -> Off-white to Stone Beige */
+  --color-cream-50: var(--color-off-white-cream);
+  --color-cream-100: #F2EFE9;
+  --color-cream-200: var(--color-stone-beige);
+  --color-cream-300: #D6CDB6;
+
+  /* Terracotta (Accents) -> Earth Brown */
+  --color-terracotta-50: #F5EBE0;
+  /* Lightest brown tint */
+  --color-terracotta-100: #E3D5CA;
+  --color-terracotta-400: #A39684;
+  --color-terracotta-500: var(--color-earth-brown);
+  --color-terracotta-600: #7A5C4B;
+  /* Darker earth brown */
+
+  /* Charcoal (Text/Dark BGs) -> Deep Coffee */
+  --color-charcoal-50: #F9F8F6;
+  --color-charcoal-100: #F0EAE6;
+  --color-charcoal-200: #E0D6D0;
+  --color-charcoal-300: var(--color-warm-taupe);
+  /* Using Taupe for mid-grey replacement */
+  --color-charcoal-400: #9C8C80;
+  --color-charcoal-500: #7D6E64;
+  --color-charcoal-600: #5E5048;
+  --color-charcoal-700: #453832;
+  --color-charcoal-800: #362B26;
+  --color-charcoal-900: var(--color-deep-coffee);
+  --color-charcoal-950: #1A1412;
+  /* Darkest coffee */
+
+  /* Legacy overrides mapped to new theme */
+  --color-slate-950: var(--color-off-white-cream);
+  --color-slate-900: var(--color-cream-50);
+  --color-slate-800: var(--color-stone-beige);
+  --color-indigo-500: var(--color-earth-brown);
+  --color-sky-500: var(--color-warm-taupe);
+  --color-emerald-500: var(--color-deep-coffee);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
